@@ -1,0 +1,28 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="">测试</a></li>
+		
+	</ul>
+	<form class="form-horizontal js-ajax-form" action="{:U('Lesson/Index/ans_post')}" method="post">	
+		<foreach name="problems" item="p">
+			<div class="question">
+				<img src="__PUBLIC__/lesson/{$p}.jpg" />
+				<div class="form-actions">
+					<input name="{$p}_1" type="submit" class="btn btn-primary js-ajax-submit" value="A" />
+					<input name="{$p}_2" type="submit" class="btn btn-primary" value="B" />
+
+				</div>
+			</div>			
+		</foreach>
+		<input type="hidden" id="p_id" name="p_id" value="" />
+	</form>
+	
+</div> 
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/lesson/index.js"></script>
+</body>
+</html>
+

@@ -18,10 +18,12 @@ class IndexController extends AdminbaseController {
      * 后台框架首页
      */
     public function index() {
+    	
         $this->load_menu_lang();
     	
         $this->assign("menus", D("Common/Menu")->menu_json());
-       	$this->display();
+        
+       	$this->display();	
     }
     
     private function load_menu_lang(){
