@@ -1,0 +1,29 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('student/index')}">学生管理</a></li>
+			<li><a href="{:U('student/add')}">添加学生</a></li>
+			<li class="active"><a>编辑学生</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('student/edit_post')}">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">姓名</label>
+					<div class="controls">
+						<input type="text" name="student_name" value="{$student['name']}">
+					</div>
+				</div>
+			
+			</fieldset>
+			<div class="form-actions">
+				<input type="hidden" name="id" value="{$student['id']}" />
+				<button type="submit" class="btn btn-primary js-ajax-submit">{:L('SAVE')}</button>
+				<a class="btn" href="javascript:history.back(-1);">{:L('BACK')}</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>
