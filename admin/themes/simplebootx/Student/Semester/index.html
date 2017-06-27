@@ -1,0 +1,41 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:U('semester/index')}">学期管理</a></li>
+			<li><a href="{:U('semester/add')}">添加学期</a></li>
+		</ul>
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th width="50">ID</th>
+					<th>名称</th>
+					<th>开始时间</th>
+					<th width="120">{:L('ACTIONS')}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php $i=0;?>			
+				<foreach name="semesters" item="vo">
+				<tr>
+					<td>{$vo.id}</td>
+					<td>{$vo.name}</td>
+					<td>{$vo.start}</td>					
+					<td>						
+						<a href='{:U("semester/edit",array("id"=>$vo["id"]))}'>{:L('EDIT')}</a>						
+						<if condition="$i eq 0">
+							|<a href='{:U("semester/manage",array("id"=>$vo["id"]))}'>
+							管理</a>
+						<?php $i++;?>
+						</if>
+					</td>
+				</tr>
+				</foreach>
+			</tbody>
+		</table>
+		<div class="pagination">{$page}</div>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

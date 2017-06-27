@@ -1,0 +1,53 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('semester/index')}">学期列表</a></li>
+			<li><a href="{:U('semester/add')}">添加学期</a></li>
+			<li class="active"><a>{$semester['name']}-学期管理</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('semester/manage_post')}">
+			<input type="hidden" name="id" value="{$semester['id']}" />
+			<div style="margin-top: 10px;">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#classroom" data-toggle="tab">班级</a></li>
+					<li><a href="#qiniu-picture-protect" data-toggle="tab">服事者</a></li>
+					<li><a href="#qiniu-picture-protect" data-toggle="tab">学生</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="classroom">
+						<table class="table table-hover table-bordered">
+							<thead>
+								<tr>
+									<th><input id="select_all" type="checkbox" name="class_all"/></th>	
+									<th>名称</th>
+								</tr>
+							</thead>
+							<tbody>
+								<foreach name="classrooms" item="vo">
+								<tr  class="tr_class">
+									<td><input type="checkbox" name="class_"/></td>
+									
+									<td>{$vo.name}</td>			
+								</tr>
+								</foreach>
+							</tbody>
+						</table>
+						<div class="form-actions">		
+							<button type="submit" class="btn btn-primary js-ajax-submit">{:L('SAVE')}</button>
+							<a class="btn" href="javascript:history.back(-1);">{:L('BACK')}</a>
+						</div>						
+					</div>
+					<div class="tab-pane" id="qiniu-picture-protect">
+						
+						
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script src="__PUBLIC__/student/index.js"></script>
+</body>
+</html>
