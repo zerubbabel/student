@@ -20,14 +20,14 @@
 						<table class="table table-hover table-bordered">
 							<thead>
 								<tr>
-									<th><input id="select_all" type="checkbox" name="class_all"/></th>	
+									<th><input id="select_all" type="checkbox" name="class_all" onclick="selectAll(this)" /></th>	
 									<th>名称</th>
 								</tr>
 							</thead>
 							<tbody>
 								<foreach name="classrooms" item="vo">
 								<tr  class="tr_class">
-									<td><input type="checkbox" name="class_"/></td>
+									<td><input type="checkbox" name="class[]"/></td>
 									
 									<td>{$vo.name}</td>			
 								</tr>
